@@ -29,7 +29,7 @@ If necessary to start again k3s: sudo k3s server &
 This project contains a web service coded in Java, but the language doesn't matter. 
 This project has already been built and the binary version is there:
 
-First of all, download the project: git clone https://github.com/charroux/kubernet
+First of all, download the project: git clone https://github.com/charroux/kubernetes
 
 Then move to the sud directory with cd kubernetes/MyService
 where a DockerFile is. 
