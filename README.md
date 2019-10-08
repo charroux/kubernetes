@@ -1,4 +1,4 @@
-# kubernetes
+Lo# kubernetes
 
 Kubernetes (commonly stylized as k8s) is an open-source container-orchestration system for automating application deployment, scaling, and management
 
@@ -30,7 +30,8 @@ This project contains a web service coded in Java, but the language doesn't matt
 This project has already been built and the binary version is there:
 
 First of all, download the project: git clone https://github.com/charroux/kubernet
-Then move to the sud directory with kubernetes/MyService
+
+Then move to the sud directory with cd kubernetes/MyService
 where a DockerFile is. 
 
 ## Test this project using Docker
@@ -43,10 +44,11 @@ Start the container: docker run –p 4000:8080 –t my-service
 
 8080 is the port of the web service, while 4000 is the port for accessing the container. 
 Test the web service using a web browser: http://localhost:4000
-
-Ctr-C to stop the Web Service.
-
 It displays hello.
+
+
+Ctr-c to stop the Web Service.
+
 
 Check the containerID: docker ps
 
