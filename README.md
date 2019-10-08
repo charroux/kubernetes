@@ -1,6 +1,6 @@
 # kubernetes
 
-Kubernetes (commonly stylized as k8s[3]) is an open-source container-orchestration system for automating application deployment, scaling, and management
+Kubernetes (commonly stylized as k8s) is an open-source container-orchestration system for automating application deployment, scaling, and management
 
 ## Requirements
 
@@ -8,11 +8,14 @@ Linux. Version used: Ubuntu Disco 19.04
  
 ## Docker installation
 
-There are many different Kubernetes solutions: learning or production environments, on cloud or off cloud... This tutorial use k3s which is a lightweight Kubernetes.
+Docker is often used with Kubernetes. Hence, Kubernetes manages a cluster of Docker containers. 
 
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 ## Install Lightweight Kubernetes: k3s
+
+
+There are many different Kubernetes solutions: learning or production environments, oncloud or offcloud... This tutorial use k3s which is a lightweight Kubernetes.
 
 curl -sfL https://get.k3s.io | sh -
 
