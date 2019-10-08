@@ -1,4 +1,4 @@
-Lo# kubernetes
+# kubernetes
 
 Kubernetes (commonly stylized as k8s) is an open-source container-orchestration system for automating application deployment, scaling, and management
 
@@ -90,19 +90,7 @@ Where 10.0.2.15 is the external ip address.
 
 To route incoming request to your service running in the pod a yaml file is required. This file is provided in the kubernetes folder (the parent folder to MyService).
 
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: my-service
-spec:
-  rules:
-    - host: my-service.10.0.2.15.xip.io
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: my-service
-              servicePort: 8080
+https://github.com/charroux/kubernetes/blob/master/my-ingress.yaml
 
 Note the use of the domain xip.io which is a magic domain name that provides wildcard DNS for any IP address
                
