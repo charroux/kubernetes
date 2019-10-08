@@ -8,6 +8,8 @@ Version used: Ubuntu Disco 19.04
  
 ## Docker installation
 
+There are many different Kubernetes solutions: learning or production environments, on cloud or off cloud... This tutorial use k3s which is a lightweight Kubernetes.
+
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 ## Install Lightweight Kubernetes: k3s
