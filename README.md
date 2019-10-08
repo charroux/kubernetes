@@ -1,10 +1,10 @@
 # kubernetes
 
+Kubernetes (commonly stylized as k8s[3]) is an open-source container-orchestration system for automating application deployment, scaling, and management
+
 ## Requirements
 
-Linux.
-
-Version used: Ubuntu Disco 19.04
+Linux. Version used: Ubuntu Disco 19.04
  
 ## Docker installation
 
@@ -23,12 +23,12 @@ If necessary to start again k3s: sudo k3s server &
 
 ## Download this project
 
-git clone https://github.com/charroux/kubernetes/
+This project contains a web service coded in Java, but the language doesn't matter. 
+This project has already been built and the binary version is there:
 
-cd kubernetes
-cd MyService
-
-MyService contains a DockerFile
+First of all, download the project: git clone https://github.com/charroux/kubernet
+Then move to the sud directory with kubernetes/MyService
+where a DockerFile is. 
 
 ## Test this project using Docker
 
@@ -38,7 +38,8 @@ Check the image: docker images
 
 Start the container: docker run –p 4000:8080 –t my-service
 
-Web browser: http://localhost:8080
+8080 is the port of the web service, while 4000 is the port for accessing the container. 
+Test the web service using a web browser: http://localhost:4000
 
 Ctr-C to stop the Web Service.
 
