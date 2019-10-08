@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: my-server
+  name: my-service
 spec:
   rules:
-    - host: my-server.10.0.2.15.xip.io
+    - host: my-service.10.0.2.15.xip.io
       http:
         paths:
           - path: /
             backend:
-              serviceName: my-server
-              servicePort: 80
+              serviceName: my-service
+              servicePort: 8080
