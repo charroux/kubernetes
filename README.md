@@ -98,3 +98,12 @@ Change the ip address 10.0.2.15 according to the external ip address. Then use t
 
 Test the access from a web browser: my-service.10.0.2.15.xip.io
 
+# Service Mesh with Linkerd
+
+Open a session as root.
+
+The installation procedure https://linkerd.io/2/getting-started/ on k3s must be modified at "linkerd check --pre" step.
+This step checks the cluster configuration. Linkerd looks for the configuration $HOME/.kube/config but it doesn't exist by default in k3s. Use the following command: kubectl config view --raw > $HOME/.kube/config
+Then get back the configuration at step "linkerd check --pre". If "pre-linkerd-global-resources" error occurs, 
+then remove the resources with "linkerd install --ignore-cluster | kubectl delete -f -". 
+Get back the installation procedure at: "linkerd install | kubectl apply -f -"
