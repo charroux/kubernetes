@@ -54,7 +54,7 @@ Check the containerID: docker ps
 
 Stop the container: docker stop containerID
 
-## Publish the image to the Dccker Hub (optional) 
+## Publish the image to the Docker Hub (optional) 
 
 Retreive the image ID: docker images
 
@@ -100,7 +100,7 @@ Change the ip address 10.0.2.15 according to the external ip address. Then use t
 
 Test the access from a web browser: my-service.10.0.2.15.xip.io
 
-## Deleting rkubernetes resources
+## Deleting kubernetes resources
 
 Deleting a pod with the command "kubectl delete pods podsName" is not enough since a pod car restart automatically.
 You shoud delete the deployement and the related services. First get all the resources with: kubectl get all
