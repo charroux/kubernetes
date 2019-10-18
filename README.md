@@ -100,7 +100,29 @@ Change the ip address 10.0.2.15 according to the external ip address. Then use t
 
 Test the access from a web browser: my-service.10.0.2.15.xip.io
 
-Kubernetes commands overview: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+## Deleting rkubernetes resources
+
+Deleting a pod with the command "kubectl delete pods podsName" is not enough since a pod car restart automatically.
+You shoud delete the deployement and the related services. First get all the resources with: kubectl get all
+You should obtain something like that:
+
+AME                                       READY   STATUS    RESTARTS   AGE
+pod/my-service-bb8976d4d-5qrf7             1/1     Running   0          35s
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/my-service   ClusterIP   10.43.16.240   <none>        8080/TCP   10d
+
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/my-service            1/1     1            1           10d
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/my-service-bb8976d4d             1         1         1       10d
+
+Then delete the deployment and the related service with: kubectl delete deployment.apps/my-service service/my-service
+
+## Kubernetes commands overview
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 # Service Mesh with Linkerd
 
