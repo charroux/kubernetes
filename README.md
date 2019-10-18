@@ -100,6 +100,8 @@ Change the ip address 10.0.2.15 according to the external ip address. Then use t
 
 Test the access from a web browser: my-service.10.0.2.15.xip.io
 
+Kubernetes commands overview: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
 # Service Mesh with Linkerd
 
 Open a session as root.
