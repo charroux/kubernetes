@@ -74,6 +74,8 @@ Deploying the app to the Kubernetes cluster from the docker image: kubectl creat
 
 Example: kubectl create deployment my-service --image myDockerID/my-service:1
 
+See the yaml generated file: kubectl get deployments my-service -o yaml
+
 Check the pod: kubectl get pods
 
 Check is the state is running.
