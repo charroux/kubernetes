@@ -98,7 +98,7 @@ deployment.apps/my-service            1/1     1            1           10d
 NAME                                             DESIRED   CURRENT   READY   AGE
 replicaset.apps/my-service-bb8976d4d             1         1         1       10d
 
-Then delete the deployment and the related service with: kubectl delete deployment.apps/my-service service/my-service
+Then delete the deployment and the related service with: kubectl delete deployment.apps/my-service
 
 ## Edition of a deployement file
 
