@@ -54,7 +54,7 @@ Check the containerID: docker ps
 
 Stop the container: docker stop containerID
 
-## Publish the image to the Docker Hub (optional) 
+## Publish the image to the Docker Hub
 
 Retreive the image ID: docker images
 
@@ -78,27 +78,7 @@ See the yaml generated file: kubectl get deployments my-service -o yaml
 
 Check the pod: kubectl get pods
 
-Check is the state is running.
-
-Expose the Deployment through a service: kubectl expose deployment my-service --port 8080
-
-Traefik (included into k3s) is the Ingress controller.
-
-Get the external ip address of the load balancer: kubectl get svc --all-namespaces 
-
-Information about the load balancer appears like: kube-system   traefik      LoadBalancer   10.43.145.104   10.0.2.15      80:31596/TCP,443:31539/TCP   33d
-
-Where 10.0.2.15 is the external ip address.
-
-To route incoming request to your service running in the pod a yaml file is required. This file is provided in the kubernetes folder (the parent folder to MyService).
-
-https://github.com/charroux/kubernetes/blob/master/my-ingress.yaml
-
-Note the use of the domain xip.io which is a magic domain name that provides wildcard DNS for any IP address
-               
-Change the ip address 10.0.2.15 according to the external ip address. Then use the command: kubectl apply -f my-ingress.yaml
-
-Test the access from a web browser: my-service.10.0.2.15.xip.io
+Check if the state is running.
 
 ## Deleting kubernetes resources
 
@@ -119,6 +99,36 @@ NAME                                             DESIRED   CURRENT   READY   AGE
 replicaset.apps/my-service-bb8976d4d             1         1         1       10d
 
 Then delete the deployment and the related service with: kubectl delete deployment.apps/my-service service/my-service
+
+## Edition of a deployement file
+
+A basic deployment file can be create like that: https://github.com/charroux/kubernetes/blob/master/my-service-deployment.yml
+
+Note how the app is selected (app: my-service) and the kind Deployment.
+
+Then to deploy the app use: kubectl apply -f my-service-deployment.yml
+
+Check if the state is running with: kubectl get pods
+
+## Expose the Deployment through a service
+
+A service can be described by: https://github.com/charroux/kubernetes/blob/master/my-service-service.yml
+
+Where targetPort: 8080 is the port of the app already deployed, and 80 is the port of the service. Note also how the app is selected (app: my-service) and the kind Service.
+
+Use 'kubectl apply -f my-service-service.yml' to launch the service.
+
+## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
+
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. There are many Ingress controllers. Traefik (included into k3s) is one of them.
+
+Such routes can be described in a yaml file: https://github.com/charroux/kubernetes/blob/master/my-service-ingress.yml
+
+Note the kind (Ingress), the choice of Traefik (kubernetes.io/ingress.class: traefik), the choice of the service (serviceName: my-service-service), the associated port (servicePort: http) and the path to that service (path: /). Endeed, note the name of the exposed host (my-service.localhost). This is the external name to get access to the service.
+
+Use this command (to use Traefik): kubectl apply -f my-service-ingress.yml
+
+Finally, check if the app is reachable using the URL: http://my-service.localhost/
 
 ## Kubernetes commands overview
 
