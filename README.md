@@ -136,7 +136,7 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 # Service Mesh with Linkerd
 
-Open a session as root.
+You should be connected as root.
 
 The following installation procedure comes from the linkerd site: https://linkerd.io/2/getting-started/
 
