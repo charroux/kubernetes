@@ -146,7 +146,11 @@ Those variables are :
 SERVICE_NAME_SERVICE_HOST
 SERVICE_NAME_SERVICE_PORT
 
+### Using DNS
 
+Kubernetes offers a DNS cluster addon Service that automatically assigns dns names to other Services. You can check if it’s running on your cluster:
+
+kubectl get services kube-dns --namespace=kube-system
 
 ## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
 
