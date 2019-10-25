@@ -40,7 +40,7 @@ Build the docker image: docker build -t my-service .
 
 Check the image: docker images
 
-Start the container: docker run –p 4000:8080 –t my-service
+Start the container: docker run -p 4000:8080 -t my-service
 
 8080 is the port of the web service, while 4000 is the port for accessing the container. 
 Test the web service using a web browser: http://localhost:4000
