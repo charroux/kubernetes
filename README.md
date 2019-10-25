@@ -110,13 +110,21 @@ Then to deploy the app use: kubectl apply -f my-service-deployment.yml
 
 Check if the state is running with: kubectl get pods
 
+When a node dies, the pods die with it.
+
 ## Expose the Deployment through a service
+
+A Kubernetes Service is an abstraction which defines a logical set of Pods running somewhere in the cluster, that all provide the same functionality. When created, each Service is assigned a unique IP address (also called clusterIP). This address is tied to the lifespan of the Service, and will not change while the Service is alive.
 
 A service can be described by: https://github.com/charroux/kubernetes/blob/master/my-service-service.yml
 
 Where targetPort: 8080 is the port of the app already deployed, and 80 is the port of the service. Note also how the app is selected (app: my-service) and the kind Service.
 
 Use 'kubectl apply -f my-service-service.yml' to launch the service.
+
+Ask kubectl what are the services : kubectl get services
+
+Then get its cluesterIP with: kubectl get sericeName
 
 ## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
 
