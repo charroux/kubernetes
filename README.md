@@ -140,7 +140,9 @@ Kubernetes supports 2 primary modes of finding a Service - environment variables
 
 When a Pod runs on a Node, the kubelet adds a set of environment variables for each active Service: 
 
-kubectl exec serviceName -- printenv | grep SERVICE
+kubectl exec podsName -- printenv | grep SERVICE
+
+where podsName is obtained with: kubectl get pods
 
 Those variables are :
 SERVICE_NAME_SERVICE_HOST
