@@ -10,10 +10,10 @@ Linux. Version used: Ubuntu Disco 19.04
 
 Docker is often used with Kubernetes. Hence, Kubernetes manages a cluster of Docker containers. 
 
-https://docs.docker.com/install/linux/docker-ce/ubuntu/
+apt  install docker.io
+
 
 ## Install Lightweight Kubernetes: k3s
-
 
 There are many different Kubernetes solutions: learning or production environments, oncloud or offcloud... This tutorial use k3s which is a lightweight Kubernetes.
 
