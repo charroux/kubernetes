@@ -1,7 +1,8 @@
-FROM node:10
+FROM node:11-alpine
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+// COPY package*.json ./
 COPY ..
+RUN npm install
 EXPOSE 8080
-CMD [ "node", "server.js" ]
+CMD ["npm", "run", "start"]
