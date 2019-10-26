@@ -131,6 +131,7 @@ Pods are exposed through endpoints and
 kubectl get ep serviceName
 
 get the clusterIP and the port. Then, you should now be able to access the service on <CLUSTER-IP>:<PORT> from any node in the cluster. Note that the Service IP is completely virtual, it never hits the wire.
+
  
 ## Accessing the service
 
