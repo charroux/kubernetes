@@ -155,6 +155,8 @@ Kubernetes offers a DNS cluster addon Service that automatically assigns dns nam
 
 kubectl get services kube-dns --namespace=kube-system
 
+pattern for any service : <service_name>.<name_space>. svc.<cluster_name>:<ClisterIP port>
+
 ## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
 
 Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. There are many Ingress controllers. Traefik (included into k3s) is one of them.
