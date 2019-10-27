@@ -80,3 +80,4 @@ spec:
             backend:
               serviceName: front-end-service
               servicePort: http
+
