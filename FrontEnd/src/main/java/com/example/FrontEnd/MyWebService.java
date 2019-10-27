@@ -19,7 +19,7 @@ public class MyWebService {
             String s = restTemplate.getForObject(backEndURL, String.class);
             return "hello" + " " + s;
         }catch (Exception e){
-            return e.getLocalizedMessage();
+            return backEndURL + ": " + e.getLocalizedMessage();
         }
     }
 
