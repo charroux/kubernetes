@@ -167,6 +167,10 @@ Use this command (to use Traefik): kubectl apply -f my-service-ingress.yml
 
 Finally, check if the app is reachable using the URL: http://my-service.localhost/
 
+Check the Ingress resources : kubectl get ingress
+
+Delete Ingress with: kubectl delete ingress my-service-ingress --namespace default
+
 ## Kubernetes commands overview
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
