@@ -23,6 +23,11 @@ var cars = [
 
 var myRouter = express.Router();
 
+myRouter.route('/')
+.get(function(req,res){
+    res.send("World");
+});
+
 myRouter.route('/hello')
 .get(function(req,res){
     res.send("World");
