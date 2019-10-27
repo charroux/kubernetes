@@ -14,14 +14,13 @@ public class MyWebService {
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String hello(){
-		return backEndURL;
-        /*try{
+		try{
             RestTemplate restTemplate = new RestTemplate();
             String s = restTemplate.getForObject(backEndURL, String.class);
-            return "hello" + " " + s;
+            return "hello (from the front end)" + " " + s + " (from the back end)";
         }catch (Exception e){
             return backEndURL + ": " + e.getLocalizedMessage();
-        }*/
+        }
     }
 
 }
