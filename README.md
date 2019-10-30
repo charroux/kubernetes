@@ -132,30 +132,6 @@ kubectl get ep serviceName
 
 get the clusterIP and the port. Then, you should now be able to access the service on <CLUSTER-IP>:<PORT> from any node in the cluster. Note that the Service IP is completely virtual, it never hits the wire.
 
- 
-## Accessing the service
-
-Kubernetes supports 2 primary modes of finding a Service - environment variables and DNS. The former works out of the box while the latter requires the CoreDNS cluster addon.
-
-### Using environment variables
-
-When a Pod runs on a Node, the kubelet adds a set of environment variables for each active Service: 
-
-kubectl exec podsName -- printenv | grep SERVICE
-
-where podsName is obtained with: kubectl get pods
-
-Those variables are :
-SERVICE_NAME_SERVICE_HOST
-SERVICE_NAME_SERVICE_PORT
-
-### Using DNS
-
-Kubernetes offers a DNS cluster addon Service that automatically assigns dns names to other Services. You can check if it’s running on your cluster:
-
-kubectl get services kube-dns --namespace=kube-system
-
-pattern for any service : <service_name>.<name_space>. svc.<cluster_name>:<ClisterIP port>
 
 ## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
 
