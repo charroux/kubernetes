@@ -135,7 +135,17 @@ get the clusterIP and the port. Then, you should now be able to access the servi
 
 ## Expose HTTP and HTTPS routes from outside the cluster to services within the cluster
 
-Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. There are many Ingress controllers. Traefik (included into k3s) is one of them.
+For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that’s outside of your cluster.
+
+Kubernetes ServiceTypes allow you to specify what kind of Service you want. The default is ClusterIP.
+
+Type values and their behaviors are:
+- ClusterIP: Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType.
+- NodePort: Exposes the Service on each Node’s IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>.
+ - LoadBalancer: Exposes the Service externally using a cloud provider’s load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created.
+ - ExternalName: Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record
+ 
+You can also use Ingress to expose your Service. Ingress is not a Service type, but it acts as the entry point for your cluster. It lets you consolidate your routing rules into a single resource as it can expose multiple services under the same IP address.Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. There are many Ingress controllers. Traefik (included into k3s) is one of them.
 
 Such routes can be described in a yaml file: https://github.com/charroux/kubernetes/blob/master/my-service-ingress.yml
 
