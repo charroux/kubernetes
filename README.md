@@ -114,6 +114,15 @@ When a node dies, the pods die with it.
 
 ## Expose the Deployment through a service
 
+kubectl expose deployment my-service-deployment --type=NodePort --name=my-service-service --port=80 --target-port=8080
+
+kubget services my-service-service
+
+AME                 TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+my-service-service   NodePort   10.43.37.203   <none>        80:32615/TCP   9m31s
+
+curl http://10.43.37.203:80
+
 A Kubernetes Service is an abstraction which defines a logical set of Pods running somewhere in the cluster, that all provide the same functionality. When created, each Service is assigned a unique IP address (also called clusterIP). This address is tied to the lifespan of the Service, and will not change while the Service is alive.
 
 A service can be described by: https://github.com/charroux/kubernetes/blob/master/my-service-service.yml
