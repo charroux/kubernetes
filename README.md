@@ -80,6 +80,21 @@ Check the pod: kubectl get pods
 
 Check if the state is running.
 
+Get complete logs for a pods: kubectl describe pods
+
+Retreive the IP address and verify the web service in a web browser at: http://IP_address:8080
+
+Notice that this IP address is ephemeral since a pods can be deleted and replaced by a new one.
+
+You can also enter inside the container in a interactive mode with: kubectl exec -it podname-rthr5 -- /bin/bash
+
+where podname is the name of the pods obtained with: kubectl get pods
+
+List the containt of the container with: ls
+
+Don't forget to exit the container with: exit
+
+
 ## Deleting kubernetes resources
 
 Deleting a pod with the command "kubectl delete pods podsName" is not enough since a pod car restart automatically.
