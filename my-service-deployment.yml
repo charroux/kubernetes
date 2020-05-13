@@ -14,4 +14,6 @@ spec:
     spec:
       containers:
       - name: my-service-container
-        image: efrei/my-service:1
+        image: efrei/my-service:2
+        imagePullPolicy: Always
+

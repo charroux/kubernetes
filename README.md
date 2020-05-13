@@ -24,6 +24,8 @@ k3s kubectl get node
 
 If necessary to start again k3s: sudo k3s server &
 
+Uninstall: /usr/local/bin/k3s-uninstall.sh
+
 ## Download this project
 
 This project contains a web service coded in Java, but the language doesn't matter. 
